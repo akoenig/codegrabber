@@ -1,4 +1,4 @@
-# CodeGrabber
+# CodeGrabber [![Build Status](https://travis-ci.org/akoenig/codegrabber.svg?branch=master)](https://travis-ci.org/akoenig/codegrabber)
 
 Grabs remote code files and embeds them into your website.
 
@@ -36,7 +36,6 @@ There are sometime situations in which you only want to display a particular par
          data-lines="1-20"></pre>
 
 Displays only the first 20 lines of `your-file.js`.
-
 
 ## Changelog
 
