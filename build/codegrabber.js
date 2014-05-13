@@ -274,11 +274,16 @@ akoenig.codegrabber.Snippet = (function init () {
     // Fetch all snippets for the given 'pre' elements.
     //
     [].forEach.call($pres, function ($pre) {
-        var snippet = Snippet.create({
-            uri: $pre.getAttribute('data-src'),
-            lines: $pre.getAttribute('data-lines')
-        });
+        var uri = $pre.getAttribute('data-src');
+        var snippet;
 
-        $pre.appendChild(snippet.getNode());
+        if (uri) {
+            snippet = Snippet.create({
+                uri: uri,
+                lines: $pre.getAttribute('data-lines')
+            });
+
+            $pre.appendChild(snippet.getNode());
+        }
     });
 })();

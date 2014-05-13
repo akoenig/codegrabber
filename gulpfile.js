@@ -26,8 +26,7 @@ var header = '/* \n' +
               ' * \n' +
               ' */\n';
 
-paths.sources = ['./lib/**/*.js', './specs/**/*.js', 'gulpfile.js'];
-paths.specs   = ['./specs/**/*.spec.js'];
+paths.sources = ['./lib/**/*.js', 'gulpfile.js'];
 paths.lib = [
     './lib/index.js',
     './lib/burnisher.js',
@@ -40,11 +39,6 @@ gulp.task('lint', function () {
     return gulp.src(paths.sources)
         .pipe(plugins.jshint('./.jshintrc'))
         .pipe(plugins.jshint.reporter('default'));
-});
-
-gulp.task('test', function () {
-    return gulp.src(paths.specs)
-        .pipe(plugins.jasmine());
 });
 
 gulp.task('concat', function () {
@@ -64,5 +58,5 @@ gulp.task('minify', function () {
     .pipe(gulp.dest('./build'));
 });
 
-gulp.task('default', ['lint', 'test']);
+gulp.task('default', ['lint']);
 gulp.task('build', ['default', 'concat', 'minify']);
