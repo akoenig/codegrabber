@@ -1,0 +1,22 @@
+{
+  "name": "grabcode",
+  "description": "Grabs remote code files and embeds them into your website.",
+  "author": {
+    "name": "André König",
+    "email": "andre.koenig@posteo.de"
+  },
+  "version": "1.0.0",
+  "repository": {
+    "url": "git@github.com:akoenig/grabcode.git"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "devDependencies": {
+    "gulp-jasmine": "^0.2.0",
+    "gulp": "^3.6.0",
+    "gulp-jshint": "^1.5.0"
+  }
+}
