@@ -1,4 +1,4 @@
-# codegrabber
+# CodeGrabber
 
 Grabs remote code files and embeds them into your website.
 
