@@ -1,0 +1,65 @@
+body {
+    font-family:'Open Sans';
+}
+
+article {
+    padding-top:50px;
+    margin:0 auto;
+    width:960px;
+}
+
+article header {
+    font-weight:100;
+    margin-bottom:80px;
+    text-align:center;
+}
+
+article header p {
+    margin:0;
+}
+
+p {
+    margin:50px 0;
+    text-align:center;
+}
+
+.snippet {
+    border:1px solid rgba(0, 0, 0, .1);
+    font-size:80%;
+    text-align:center;
+}
+
+pre.example{
+    background-color:#333;
+    padding:.8em 1em;
+    color:#fff;
+    border-radius:2px
+}
+article pre code{
+    background:none;
+    display:block;
+    padding:0;
+    margin:0;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:100%;
+}
+
+.copyright {
+    font-size:90%;
+    line-height:80px;
+    text-align:center;
+}
+
+.copyright .copyright-avatar {
+    margin:0 10px -16px;
+}
+
+.copyright a {
+    color:rgba(0, 0, 0, .8);
+    font-size:94%;
+}
+
+.image-round {
+    border-radius:50%;
+}

@@ -1,111 +1,43 @@
 <!doctype html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>codegrabber - example</title>
+    <head>
+        <meta charset="utf-8">
+        <title>codegrabber - example</title>
 
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
 
-    <style type="text/css">
+        <link rel="stylesheet" type="text/css" href="styles/main.css">
+    </head>
+    <body>
+        <a href="https://github.com/akoenig/codegrabber"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
 
-        body {
-            font-family:'Open Sans';
-        }
+        <article>
+            <header>
+                <h1>CodeGrabber</h1>
 
-    article {
-        padding-top:50px;
-        margin:0 auto;
-        width:960px;
-    }
+                <p>A simple way of embedding remote source files.</p>
+            </header>
 
-    article header {
-        font-weight:100;
-        margin-bottom:80px;
-        text-align:center;
-    }
+            <pre class="snippet">
+                <code>
+    &lt;pre data-src="https://cdn.rawgit.com/npmawesome/npmawesome.com/master/README.md"
+            &gt;&lt;/pre&gt;
+                </code>
+            </pre>
 
-    article header p {
-        margin:0;
-    }
+            <p>will be transformed into</p>
 
-    p {
-        margin:50px 0;
-        text-align:center;
-    }
+            <pre class="example" data-src="https://cdn.rawgit.com/npmawesome/npmawesome.com/master/README.md"
+            ></pre>
 
-    .snippet {
-        border:1px solid rgba(0, 0, 0, .1);
-        font-size:80%;
-        text-align:center;
-    }
+            <p>Check the <a href="http://github.com/akoenig/codegrabber">GitHub repository</a> to learn ALL the options :)</p>
 
-    pre.example{
-        background-color:#333;
-        padding:.8em 1em;
-        color:#fff;
-        border-radius:2px
-    }
-    article pre code{
-        background:none;
-        display:block;
-        padding:0;
-        margin:0;
-        overflow:hidden;
-        text-overflow:ellipsis;
-        max-width:100%;
-    }
+            <section class="copyright">
+                <p>Built by <a href="http://andrekoenig.info"><img class="image-round copyright-avatar" width="40" src="http://akoenig.github.io/angular-deckgrid/images/andre.png" alt="My profile avatar"> André König</a></p>
+            </section>
+        </article>
 
-    .copyright {
-        font-size:90%;
-        line-height:80px;
-        text-align:center;
-    }
-
-    .copyright .copyright-avatar {
-        margin:0 10px -16px;
-    }
-
-    .copyright a {
-        color:rgba(0, 0, 0, .8);
-        font-size:94%;
-    }
-
-    .image-round {
-        border-radius:50%;
-    }
-
-    </style>
-</head>
-<body>
-    <a href="https://github.com/akoenig/codegrabber"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
-
-    <article>
-        <header>
-            <h1>CodeGrabber</h1>
-
-            <p>A simple way of embedding remote source files.</p>
-        </header>
-
-        <pre class="snippet">
-            <code>
-&lt;pre data-src="https://cdn.rawgit.com/npmawesome/npmawesome.com/master/README.md"
-        &gt;&lt;/pre&gt;
-            </code>
-        </pre>
-
-        <p>will be transformed into</p>
-
-        <pre class="example" data-src="https://cdn.rawgit.com/npmawesome/npmawesome.com/master/README.md"
-        ></pre>
-
-        <p>Checkout the <a href="http://github.com/akoenig/codegrabber">GitHub repository</a> to learn ALL the options :)</p>
-
-        <section class="copyright">
-            <p>Built by <a href="http://andrekoenig.info"><img class="image-round copyright-avatar" width="40" src="http://akoenig.github.io/angular-deckgrid/images/andre.png" alt="My profile avatar"> André König</a></p>
-        </section>
-    </article>
-
-    <script src="codegrabber.min.js"></script>
-</body>
+        <script src="codegrabber.min.js"></script>
+    </body>
 </html>
