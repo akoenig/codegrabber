@@ -1,6 +1,6 @@
 {
   "name": "codegrabber",
-  "version": "0.2.0",
+  "version": "0.1.0",
   "author": "André König (andre.koenig@posteo.de)",
   "description": "Grabs remote code files and embeds them into your website.",
   "license": "MIT",
