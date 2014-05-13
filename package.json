@@ -1,11 +1,11 @@
 {
   "name": "codegrabber",
+  "version": "0.2.0",
   "description": "Grabs remote code files and embeds them into your website.",
   "author": {
     "name": "André König",
     "email": "andre.koenig@posteo.de"
   },
-  "version": "0.1.0",
   "repository": {
     "url": "git@github.com:akoenig/codegrabber.git"
   },
@@ -20,6 +20,10 @@
     "gulp-concat": "^2.2.0",
     "gulp-header": "^1.0.2",
     "gulp-jshint": "^1.5.0",
-    "gulp-uglify": "^0.3.0"
+    "gulp-karma": "0.0.4",
+    "gulp-uglify": "^0.3.0",
+    "karma": "^0.12.16",
+    "karma-jasmine": "^0.1.5",
+    "karma-phantomjs-launcher": "^0.1.4"
   }
 }

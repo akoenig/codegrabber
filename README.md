@@ -39,10 +39,13 @@ Displays only the first 20 lines of `your-file.js`.
 
 ## Changelog
 
-### Version 0.2.0 (Future)
+### Version 0.3.0 (Future)
 
-- Feature for removing comments.
-- End-to-end tests
+- Feature for removing comments from a source file.
+
+### Version 0.2.0 (20140513)
+
+- Specs
 
 ### Version 0.1.0 (20140513)
 

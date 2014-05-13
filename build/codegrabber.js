@@ -1,5 +1,5 @@
 /* 
- * codegrabber (v0.1.0)
+ * codegrabber (v0.2.0)
  * 
  * Copyright(c) 2014 André König <andre.koenig@posteo.de>
  * MIT Licensed 
@@ -184,7 +184,7 @@ akoenig.codegrabber.Snippet = (function init () {
      *
      */
     function Snippet (options) {
-        this.uri = options.uri || 'https://rawgit.com/akoenig/codegrabber/master/message';
+        this.uri = options.uri;
         this.lines = options.lines;
 
         this.$$node = document.createElement('pre');
