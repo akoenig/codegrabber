@@ -1,12 +1,12 @@
-# grabcode
+# codegrabber
 
 Grabs remote code files and embeds them into your website.
 
 ## Installation
 
-Install with [npm](https://npmjs.org/package/grabcode).
+Install with [npm](https://npmjs.org/package/codegrabber).
 
-    npm install --save grabcode
+    npm install --save codegrabber
 
 ## Changelog
 

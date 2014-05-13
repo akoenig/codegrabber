@@ -1,13 +1,13 @@
 {
-  "name": "grabcode",
+  "name": "codegrabber",
   "description": "Grabs remote code files and embeds them into your website.",
   "author": {
     "name": "André König",
     "email": "andre.koenig@posteo.de"
   },
-  "version": "1.0.0",
+  "version": "0.1.0",
   "repository": {
-    "url": "git@github.com:akoenig/grabcode.git"
+    "url": "git@github.com:akoenig/codegrabber.git"
   },
   "license": "MIT",
   "main": "index.js",
@@ -15,8 +15,12 @@
     "test": "gulp"
   },
   "devDependencies": {
-    "gulp-jasmine": "^0.2.0",
+    "bunchitos": "^0.1.1",
     "gulp": "^3.6.0",
-    "gulp-jshint": "^1.5.0"
+    "gulp-concat": "^2.2.0",
+    "gulp-header": "^1.0.2",
+    "gulp-jasmine": "^0.2.0",
+    "gulp-jshint": "^1.5.0",
+    "gulp-uglify": "^0.3.0"
   }
 }
