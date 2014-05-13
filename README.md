@@ -32,7 +32,7 @@ Default: undefined
 
 There are sometime situations in which you only want to display a particular part of your source files. You can do that by defining the `data-lines` attribute, like:
 
-    <pre data-src="https://domain.tld/your-file.js"
+    <pre data-src="https://host.tld/your-file.js"
          data-lines="1-20"></pre>
 
 Displays only the first 20 lines of `your-file.js`.
