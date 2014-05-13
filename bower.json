@@ -12,6 +12,7 @@
   "ignore": [
     "**/.*",
     "node_modules",
+    "example",
     "lib",
     "specs",
     ".jshintrc",
