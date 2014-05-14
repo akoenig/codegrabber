@@ -4,7 +4,7 @@ Grabs remote code files and embeds them into your website.
 
 ## Installation
 
-1. Include `codegrabber` in your HTML.
+1. Include `codegrabber` in your HTML (see `build` directory).
 
     ```html
     <script src="codegrabber.min.js"></script>

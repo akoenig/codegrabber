@@ -1,6 +1,6 @@
 {
   "name": "codegrabber",
-  "version": "0.2.0-alpha",
+  "version": "0.2.0",
   "description": "Grabs remote code files and embeds them into your website.",
   "author": {
     "name": "André König",
@@ -10,7 +10,6 @@
     "url": "git@github.com:akoenig/codegrabber.git"
   },
   "license": "MIT",
-  "main": "index.js",
   "scripts": {
     "test": "gulp"
   },

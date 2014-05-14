@@ -1,5 +1,5 @@
 /* 
- * codegrabber (v0.2.0-alpha)
+ * codegrabber (v0.2.0)
  * 
  * Copyright(c) 2014 André König <andre.koenig@posteo.de>
  * MIT Licensed 
@@ -23,9 +23,9 @@
 /*jshint -W079 */
 var codegrabber = codegrabber || {};
 
-codegrabber.name = 'codegrabber';
-codegrabber.version = '0.2.0'; // Replace by build process.
-codegrabber.author = 'André König <andre.koenig@posteo.de>'; // Replace by build process.
+codegrabber.name = 'codegrabber'; // TODO: Replace by build process.
+codegrabber.version = '0.2.0'; // TODO: Replace by build process.
+codegrabber.author = 'André König <andre.koenig@posteo.de>'; // TODO: Replace by build process.
 /*
  * codegrabber
  *
@@ -189,7 +189,7 @@ codegrabber.Hooks = (function initialize () {
         }
 
         if ('function' !== typeof hook.run) {
-            return console.error('%s: The hook \'%s\' needs a valid \'run\' function. Skipping this hook..', codegrabber.name, hook.name);
+            return console.error('%s: The hook \'%s\' needs a valid \'run\' function. Skipping this hook.', codegrabber.name, hook.name);
         }
 
         hooks.push(hook);
