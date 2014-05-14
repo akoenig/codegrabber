@@ -45,7 +45,8 @@ Displays only the first 20 lines of `your-file.js`.
 
 ### Version 0.2.0 (Future)
 
-- Interface for integrating syntax highlighters
+- Interface for integrating hooks (e.g. syntax highlighters)
+- Streamlined the namespace
 
 ### Version 0.1.0 (20140513)
 
