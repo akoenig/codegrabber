@@ -1,43 +1,45 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>codegrabber</title>
+<head>
+    <meta charset="utf-8">
+    <title>codegrabber</title>
 
-        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css">
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_light.min.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <a href="https://github.com/akoenig/codegrabber"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
 
-        <link rel="stylesheet" type="text/css" href="styles/main.css">
-    </head>
-    <body>
-        <a href="https://github.com/akoenig/codegrabber"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+    <article>
+        <header>
+            <h1>CodeGrabber</h1>
 
-        <article>
-            <header>
-                <h1>CodeGrabber</h1>
+            <p>A simple way of embedding remote source files.</p>
+        </header>
 
-                <p>A simple way of embedding remote source files.</p>
-            </header>
+        <pre class="snippet">
+            <code>
+&lt;pre data-src="https://cdn.rawgit.com/npmawesome/npmawesome.com/master/README.md"
+        &gt;&lt;/pre&gt;
+            </code>
+        </pre>
 
-            <pre class="snippet">
-                <code>
-    &lt;pre data-src="https://cdn.rawgit.com/npmawesome/npmawesome.com/master/README.md"
-            &gt;&lt;/pre&gt;
-                </code>
-            </pre>
+        <p>will be transformed into</p>
 
-            <p>will be transformed into</p>
+        <pre class="example markdown" data-src="https://rawgit.com/npmawesome/npmawesome.com/master/README.md"
+        ></pre>
 
-            <pre class="example" data-src="https://cdn.rawgit.com/npmawesome/npmawesome.com/master/README.md"
-            ></pre>
+        <p>Check the <a href="http://github.com/akoenig/codegrabber">GitHub repository</a> to learn ALL the options :)</p>
 
-            <p>Check the <a href="http://github.com/akoenig/codegrabber">GitHub repository</a> to learn ALL the options :)</p>
+        <section class="copyright">
+            <p>Built by <a href="http://andrekoenig.info"><img class="image-round copyright-avatar" width="40" src="http://akoenig.github.io/angular-deckgrid/images/andre.png" alt="My profile avatar"> André König</a></p>
+        </section>
+    </article>
 
-            <section class="copyright">
-                <p>Built by <a href="http://andrekoenig.info"><img class="image-round copyright-avatar" width="40" src="http://akoenig.github.io/angular-deckgrid/images/andre.png" alt="My profile avatar"> André König</a></p>
-            </section>
-        </article>
-
-        <script src="codegrabber.min.js"></script>
-    </body>
+    <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script src="codegrabber.min.js"></script>
+    <script src="codegrabber-highlightjs.min.js"></script>
+</body>
 </html>

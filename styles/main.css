@@ -1,3 +1,11 @@
+/* 
+ * codegrabber (v0.2.0)
+ * 
+ * Copyright(c) 2014 André König <andre.koenig@posteo.de>
+ * MIT Licensed 
+ * 
+ */
+
 body {
     font-family:'Open Sans';
 }
@@ -35,6 +43,11 @@ pre.example{
     color:#fff;
     border-radius:2px
 }
+
+.example code {
+    font-size:90% !important;
+}
+
 article pre code{
     background:none;
     display:block;
