@@ -21,8 +21,11 @@
 'use strict';
 
 /*jshint -W079 */
-var akoenig = akoenig || {};
-akoenig.codegrabber = akoenig.codegrabber || {};
+var codegrabber = codegrabber || {};
+
+codegrabber.name = 'codegrabber';
+codegrabber.version = '0.2.0'; // Replace by build process.
+codegrabber.author = 'André König <andre.koenig@posteo.de>'; // Replace by build process.
 /*
  * codegrabber
  *
@@ -38,7 +41,7 @@ akoenig.codegrabber = akoenig.codegrabber || {};
 
 'use strict';
 
-akoenig.codegrabber.Burnisher = (function init () {
+codegrabber.Burnisher = (function initialize () {
 
     /**
      * Burnisher provides the functionality
@@ -122,7 +125,7 @@ akoenig.codegrabber.Burnisher = (function init () {
 
 'use strict';
 
-akoenig.codegrabber.HTTP = (function init () {
+codegrabber.HTTP = (function initialize () {
 
     function HTTP () {}
 
@@ -166,11 +169,90 @@ akoenig.codegrabber.HTTP = (function init () {
 
 'use strict';
 
-akoenig.codegrabber.Snippet = (function init () {
+codegrabber.Hooks = (function initialize () {
+
+    var hooks = [];
+
+    /**
+     * Registering a hook. This function will be exposed
+     * for using by hook authors.
+     *
+     * @param {object} hook The hook that should be registered..
+     *
+     */
+    function register (hook) {
+
+        hook = hook || {};
+
+        if (!hook.name) {
+            return console.error('%s: Please define a name for your hook.', codegrabber.name);
+        }
+
+        if ('function' !== typeof hook.run) {
+            return console.error('%s: The hook \'%s\' needs a valid \'run\' function. Skipping this hook..', codegrabber.name, hook.name);
+        }
+
+        hooks.push(hook);
+    }
+
+    /**
+     * Clears all registered hooks
+     *
+     */
+    function clear () {
+        hooks = [];
+    }
+
+    /**
+     * Will run all defined hooks in series
+     * 
+     * @param  {element} element The 'pre' element.
+     *
+     */
+    function run (element) {
+        var i = 0;
+        var len;
+        var executions = 0;
+
+        if (hooks.length) {
+            len = hooks.length;
+
+            for (i; i < len; i = i + 1) {
+                hooks[i].run(element);
+
+                executions = executions + 1;
+            }
+        }
+
+        return executions;
+    }
+
+    return {
+        register: register,
+        clear: clear,
+        $$run: run
+    };
+})();
+/*
+ * codegrabber
+ *
+ * Copyright(c) 2014 André König <andre.koenig@posteo.de>
+ * MIT Licensed
+ *
+ */
+
+/**
+ * @author André König <andre.koenig@posteo.de>
+ *
+ */
+
+'use strict';
+
+codegrabber.Snippet = (function initialize () {
     
-    var HTTP = akoenig.codegrabber.HTTP;
-    var Burnisher = akoenig.codegrabber.Burnisher;
-    var Highlighters = akoenig.codegrabber.Highlighters;
+    var HTTP = codegrabber.HTTP;
+    var Burnisher = codegrabber.Burnisher;
+    var Hooks = codegrabber.Hooks;
 
     /**
      * A remote code snippet which will be fetched, polished
@@ -185,15 +267,38 @@ akoenig.codegrabber.Snippet = (function init () {
      *
      */
     function Snippet (options) {
+        var self = this;
+
         this.uri = options.uri;
         this.lines = options.lines;
 
+        //
+        // Create the DOM element structure
+        //
+        //     <pre>
+        //         <code></code>
+        //     </pre>
+        // 
         this.$pre = options.pre;
         this.$code = document.createElement('code');
-
         this.$pre.appendChild(this.$code);
 
-        this.$$fetch();
+        //
+        // Fetch the remote source file, polish it, embed
+        // the contents into the DOM and execute possible hooks.
+        //
+        HTTP.get(this.uri, function onFetch (err, contents) {
+            if (err) {
+                return console.log('%s: Fetching remote source file failed', codegrabber.name);
+            }
+
+            contents = self.$$polish(contents);
+            contents = document.createTextNode(contents);
+
+            self.$code.appendChild(contents);
+
+            Hooks.$$run(self.$pre);
+        });
     }
 
     /**
@@ -211,46 +316,6 @@ akoenig.codegrabber.Snippet = (function init () {
         }
 
         return contents;
-    };
-
-    /**
-     * Triggers the configured highlight plugin.
-     *
-     */
-    Snippet.prototype.$$highlight = function $$highlight () {
-        var highlighters = akoenig.codegrabber.Plugins.highlighters;
-        // In the current release it is just possible to access the first
-        // registered highlighter.
-        var highlighter = highlighters[Object.keys(highlighters)[0]];
-
-        if (highlighter) {
-            highlighter(this.$pre);
-        }
-    };
-
-    /**
-     * Fetchs the source file from the given URI and injects
-     * the polished source into the 'code' node.
-     *
-     */
-    Snippet.prototype.$$fetch = function $$fetch () {
-        var self = this;
-
-        function onFetch (err, contents) {
-            if (err) {
-                return console.error(err);
-            }
-
-            contents = self.$$polish(contents);
-            contents = document.createTextNode(contents);
-
-            self.$code.appendChild(contents);
-
-            // Trigger the syntax highlighting.
-            self.$$highlight();
-        }
-
-        HTTP.get(this.uri, onFetch);
     };
 
     return {
@@ -276,35 +341,9 @@ akoenig.codegrabber.Snippet = (function init () {
 
 'use strict';
 
-akoenig.codegrabber.Plugins = (function init () {
+(function main () {
 
-    return {
-        highlighters: {},
-
-        registerHighlighter : function registerHighlighter (name, hook) {
-            this.highlighters[name] = hook;
-        }
-    };
-})();
-/*
- * codegrabber
- *
- * Copyright(c) 2014 André König <andre.koenig@posteo.de>
- * MIT Licensed
- *
- */
-
-/**
- * @author André König <andre.koenig@posteo.de>
- *
- */
-
-'use strict';
-
-(function init () {
-
-    var HTTP = akoenig.codegrabber.HTTP;
-    var Snippet = akoenig.codegrabber.Snippet;
+    var Snippet = codegrabber.Snippet;
 
     var $pres = document.querySelectorAll('pre');
 
@@ -313,10 +352,9 @@ akoenig.codegrabber.Plugins = (function init () {
     //
     [].forEach.call($pres, function ($pre) {
         var uri = $pre.getAttribute('data-src');
-        var snippet;
 
         if (uri) {
-            snippet = Snippet.create({
+            Snippet.create({
                 pre: $pre,
                 uri: uri,
                 lines: $pre.getAttribute('data-lines')

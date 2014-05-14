@@ -15,7 +15,7 @@
 
 describe('The Burnisher', function () {
 
-    var Burnisher = window.akoenig.codegrabber.Burnisher;
+    var Burnisher = window.codegrabber.Burnisher;
 
     it('should be creatable', function () {
         var burnisher = Burnisher.create();

@@ -36,8 +36,8 @@ paths.lib = [
     './lib/index.js',
     './lib/burnisher.js',
     './lib/http.js',
+    './lib/hooks.js',
     './lib/snippet.js',
-    './lib/plugins.js',
     './lib/initializer.js'
 ];
 

@@ -7,6 +7,6 @@
         "expect": false,
         "beforeEach": false,
         "afterEach": false,
-        "akoenig": false
+        "codegrabber": false
     }
 }
