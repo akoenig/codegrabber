@@ -37,6 +37,7 @@ paths.lib = [
     './lib/burnisher.js',
     './lib/http.js',
     './lib/snippet.js',
+    './lib/plugins.js',
     './lib/initializer.js'
 ];
 

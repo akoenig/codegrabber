@@ -1,5 +1,5 @@
 /* 
- * codegrabber (v0.1.0)
+ * codegrabber (v0.2.0-alpha)
  * 
  * Copyright(c) 2014 André König <andre.koenig@posteo.de>
  * MIT Licensed 
@@ -170,6 +170,7 @@ akoenig.codegrabber.Snippet = (function init () {
     
     var HTTP = akoenig.codegrabber.HTTP;
     var Burnisher = akoenig.codegrabber.Burnisher;
+    var Highlighters = akoenig.codegrabber.Highlighters;
 
     /**
      * A remote code snippet which will be fetched, polished
@@ -187,7 +188,11 @@ akoenig.codegrabber.Snippet = (function init () {
         this.uri = options.uri;
         this.lines = options.lines;
 
-        this.$$node = document.createElement('pre');
+        this.$pre = options.pre;
+        this.$code = document.createElement('code');
+
+        this.$pre.appendChild(this.$code);
+
         this.$$fetch();
     }
 
@@ -209,6 +214,21 @@ akoenig.codegrabber.Snippet = (function init () {
     };
 
     /**
+     * Triggers the configured highlight plugin.
+     *
+     */
+    Snippet.prototype.$$highlight = function $$highlight () {
+        var highlighters = akoenig.codegrabber.Plugins.highlighters;
+        // In the current release it is just possible to access the first
+        // registered highlighter.
+        var highlighter = highlighters[Object.keys(highlighters)[0]];
+
+        if (highlighter) {
+            highlighter(this.$pre);
+        }
+    };
+
+    /**
      * Fetchs the source file from the given URI and injects
      * the polished source into the 'code' node.
      *
@@ -224,20 +244,13 @@ akoenig.codegrabber.Snippet = (function init () {
             contents = self.$$polish(contents);
             contents = document.createTextNode(contents);
 
-            self.$$node.appendChild(contents);
+            self.$code.appendChild(contents);
+
+            // Trigger the syntax highlighting.
+            self.$$highlight();
         }
 
         HTTP.get(this.uri, onFetch);
-    };
-
-    /**
-     * Returns the HTML 'code' node.
-     *
-     * @return {Node}
-     *
-     */
-    Snippet.prototype.getNode = function getNode () {
-        return this.$$node;
     };
 
     return {
@@ -245,6 +258,31 @@ akoenig.codegrabber.Snippet = (function init () {
             options = options || {};
 
             return new Snippet(options);
+        }
+    };
+})();
+/*
+ * codegrabber
+ *
+ * Copyright(c) 2014 André König <andre.koenig@posteo.de>
+ * MIT Licensed
+ *
+ */
+
+/**
+ * @author André König <andre.koenig@posteo.de>
+ *
+ */
+
+'use strict';
+
+akoenig.codegrabber.Plugins = (function init () {
+
+    return {
+        highlighters: {},
+
+        registerHighlighter : function registerHighlighter (name, hook) {
+            this.highlighters[name] = hook;
         }
     };
 })();
@@ -279,11 +317,10 @@ akoenig.codegrabber.Snippet = (function init () {
 
         if (uri) {
             snippet = Snippet.create({
+                pre: $pre,
                 uri: uri,
                 lines: $pre.getAttribute('data-lines')
             });
-
-            $pre.appendChild(snippet.getNode());
         }
     });
 })();

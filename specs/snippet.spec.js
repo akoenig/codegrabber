@@ -18,7 +18,9 @@ describe('The Snippet', function () {
     var Snippet = window.akoenig.codegrabber.Snippet;
 
     it('should be creatable', function () {
-        var snippet = Snippet.create();
+        var snippet = Snippet.create({
+            pre: document.createElement('pre')
+        });
 
         expect(snippet.constructor.name).toBe('Snippet');
     });
