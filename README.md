@@ -30,7 +30,7 @@ The URI to the source file which you want to embed.
 Type: `String`
 Default: undefined
 
-There are sometime situations in which you only want to display a particular part of your source files. You can do that by defining the `data-lines` attribute, like:
+There are sometime situations in which you want to display only a particular part of your source files. You can do that by defining the `data-lines` attribute, like:
 
     <pre data-src="https://host.tld/your-file.js"
          data-lines="1-20"></pre>
