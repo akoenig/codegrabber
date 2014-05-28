@@ -39,7 +39,7 @@ Displays only the first 20 lines of `your-file.js`.
 
 ## Meh, no syntax highlighting? - Hooks!
 
-If you are wondering why there is no syntax highlighting, because hooks :) `codegrabber` provides a straightforward hook mechanism with which you can embed your favorite syntax highlighter or, of course, do other crazy things. I built a hook for using the [highlight.js](http://highlightjs.org) syntax highlighter out of the box. Check [codegrabber-highlightjs](https://github.com/akoenig/codegrabber-highlightjs).
+If you are wondering why there is no syntax highlighting, because hooks :) `codegrabber` provides a straightforward hook mechanism with which you can plug in your favorite syntax highlighter or, of course, do other crazy things. I built a hook for using the [highlight.js](http://highlightjs.org) syntax highlighter out of the box. Check [codegrabber-highlightjs](https://github.com/akoenig/codegrabber-highlightjs).
 
 But, writing your own hook and registering it is easy:
 
@@ -54,7 +54,7 @@ But, writing your own hook and registering it is easy:
 
 You can register as much hooks as you want. All of them will be executed in a sequential order.
 
-Easy, eh? Every hook will be run `after` the source file has been loaded into the respective HTML element which will also be passed to the `run` function.
+Easy, eh? Every hook will be run `after` the source file has been loaded into the respective HTML element. This element will also be passed to the `run` function in the case you want to interact with it in some way.
     
 ### Available Hooks
 
